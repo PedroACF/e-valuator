@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel new app
+                    Laravel ultra new app
                 </div>
 
                 <div class="links">
