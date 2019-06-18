@@ -15,8 +15,8 @@ class Initial extends Migration
     {
         Schema::create('courses', function(Blueprint $table){
             $table->increments('id');
-            $table->string('name');
-            $table->string('shortname');
+            $table->string('name', 255);
+            $table->string('shortname', 255);
             $table->integer('group')->default(1);
             $table->timestamps();
         });
@@ -31,7 +31,7 @@ class Initial extends Migration
 
         Schema::create('tests', function(Blueprint $table){
             $table->increments('id');
-            $table->string('description');
+            $table->string('description', 255);
             $table->integer('course_id');
             $table->foreign('course_id')->references('id')->on('courses');
             $table->integer('minutes');
@@ -42,13 +42,13 @@ class Initial extends Migration
 
         Schema::create('categories', function(Blueprint $table){
             $table->increments('id');
-            $table->string('name');
+            $table->string('name', 255);
             $table->timestamps();
         });
 
         Schema::create('questions', function(Blueprint $table){
             $table->increments('id');
-            $table->string('description');
+            $table->text('description');
             $table->integer('category_id');
             $table->foreign('category_id')->references('id')->on('categories');
             $table->timestamps();
@@ -56,7 +56,7 @@ class Initial extends Migration
 
         Schema::create('answers', function(Blueprint $table){
             $table->increments('id');
-            $table->string('description');
+            $table->text('description');
             $table->boolean('correct')->default(false);
             $table->integer('question_id');
             $table->foreign('question_id')->references('id')->on('questions');
