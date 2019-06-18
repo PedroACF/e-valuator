@@ -8,15 +8,15 @@
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
-    <link rel="stylesheet" href="{{secure_asset('plugins/bootstrap/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="/plugins/bootstrap/css/bootstrap.min.css">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="{{secure_asset('plugins/fontawesome/css/all.min.css')}}">
+    <link rel="stylesheet" href="/plugins/fontawesome/css/all.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="{{secure_asset('css/AdminLTE.min.css')}}">
+    <link rel="stylesheet" href="/css/AdminLTE.min.css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
-    <link rel="stylesheet" href="{{secure_asset('css/skins/_all-skins.min.css')}}">
-    <link rel="stylesheet" href="{{secure_asset('css/custom.css')}}">
+    <link rel="stylesheet" href="/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="/css/custom.css">
 
     <!-- Custom styles -->
     @stack('styles')
@@ -47,8 +47,8 @@
     <nav class="navbar navbar-static-top">
       <!-- Sidebar toggle button-->
       <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-        <span class="sr-only">Toggle navigation</span>
-        <i class="fas fa-menu"></i>
+
+        <i class="fas fa-bars"></i>
       </a>
 
       <div class="navbar-custom-menu">
@@ -67,7 +67,7 @@
                   <li><!-- start message -->
                     <a href="#">
                       <div class="pull-left">
-                        <img src="{{secure_asset('img/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
+                        <img src="/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                       </div>
                       <h4>
                         Support Team
@@ -139,13 +139,13 @@
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="{{secure_asset('img/user2-160x160.jpg')}}" class="user-image" alt="User Image">
+              <img src="/img/user2-160x160.jpg" class="user-image" alt="User Image">
               <span class="hidden-xs">Alexander Pierce</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="{{secure_asset('img/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
+                <img src="/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                 <p>
                   Alexander Pierce - Web Developer
@@ -192,7 +192,7 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="{{secure_asset('img/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
+          <img src="/img/user2-160x160.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p>Alexander Pierce</p>
@@ -425,18 +425,18 @@
   <div class="control-sidebar-bg"></div>
 </div>
 <!-- ./wrapper -->
-<script src="{{secure_asset('plugins/moment/moment-with-locales.js')}}"></script>
+<script src="/plugins/moment/moment-with-locales.js"></script>
 <!--<script src="{{secure_asset('plugins/moment/moment.min.js')}}"></script>-->
 <!-- jQuery 3 -->
-<script src="{{secure_asset('plugins/jquery/jquery.min.js')}}"></script>
+<script src="/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
-<script src="{{secure_asset('plugins/bootstrap/js/bootstrap.min.js')}}"></script>
+<script src="/plugins/bootstrap/js/bootstrap.min.js"></script>
 <!-- SlimScroll -->
-<script src="{{secure_asset('plugins/jquerySlimscroll/jquery.slimscroll.min.js')}}"></script>
+<script src="/plugins/jquerySlimscroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
-<script src="{{secure_asset('plugins/fastclick/fastclick.js')}}"></script>
+<script src="/plugins/fastclick/fastclick.js"></script>
 <!-- AdminLTE App -->
-<script src="{{secure_asset('js/adminlte.min.js')}}"></script>
+<script src="/js/adminlte.min.js"></script>
 
 <script>
     $(document).ready(function () {
