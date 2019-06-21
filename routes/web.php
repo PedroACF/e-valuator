@@ -20,12 +20,26 @@ Route::group(['middleware' => ['auth']], function(){
         return view('welcome');
     });
 
-    Route::get('categories', 'CategoryController@index')->name('categories.index');
-    Route::get('categories/create', 'CategoryController@create')->name('categories.create');
-    Route::get('categories/{id}', 'CategoryController@detail')->name('categories.detail');
-    Route::post('categories/create', 'CategoryController@store')->name('categories.store');
-    Route::get('questions/{category_id}/create', 'QuestionController@create')->name('questions.create');
-    Route::post('questions/{category_id}/create', 'QuestionController@store')->name('questions.store');
+    Route::prefix('categories')->group(function(){
+        Route::get('/', 'CategoryController@index')->name('categories.index');
+        Route::get('create', 'CategoryController@create')->name('categories.create');
+        Route::post('create', 'CategoryController@store')->name('categories.store');
+        Route::get('{id}', 'CategoryController@detail')->name('categories.detail');
+        Route::get('{id}/edit', 'CategoryController@edit')->name('categories.edit');
+        Route::post('{id}/edit', 'CategoryController@update')->name('categories.update');
+    });
+
+    Route::prefix('questions/{category_id}')->group(function(){
+        Route::get('/', 'QuestionController@index')->name('questions.index');
+        Route::get('create', 'QuestionController@create')->name('questions.create');
+        Route::post('create', 'QuestionController@store')->name('questions.store');
+        Route::get('{id}/edit', 'QuestionController@edit')->name('questions.edit');
+        Route::post('{id}/edit', 'QuestionController@update')->name('questions.update');
+    });
+
+
+
+
 
 
     Route::resource('courses','CourseController');

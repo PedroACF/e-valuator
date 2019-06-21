@@ -4,6 +4,7 @@ namespace EV\Http\Controllers;
 
 use Illuminate\Http\Request;
 use EV\Models\Category;
+use Illuminate\Validation\Rule;
 
 class CategoryController extends Controller
 {
@@ -13,21 +14,33 @@ class CategoryController extends Controller
     }
 
     public function create(){
-        return view('category.form');
+        return view('category.form', ['category'=> new Category()]);
     }
 
     public function store(Request $request){
-        $categories = new Category($request->all());
+        $validatedData = $request->validate([
+            'name'=> 'required|unique:categories'
+        ]);
+        $categories = new Category($validatedData);
         $categories->save();
         return redirect()->route('categories.index');
     }
 
-    public function detail($id){
+    public function edit($id){
         $category = Category::findOrFail($id);
-        return view('category.detail', ['category'=>$category]);
+        return view('category.form', ['category'=>$category]);
     }
 
-    public function edit($id){
-
+    public function update(Request $request, $id){
+        $category = Category::findOrFail($id);
+        $validatedData = $request->validate([
+            'name'=> [
+                'required',
+                Rule::unique('categories')->ignore($category->id),
+            ]
+        ]);
+        $category->fill($validatedData);
+        $category->save();
+        return redirect()->route('categories.index');
     }
 }

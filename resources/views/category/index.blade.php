@@ -1,15 +1,17 @@
 @extends('layouts.main')
 
 @section('content')
+
 <div class="box box-solid box-primary">
     <div class="box-header">
         <h3 class="box-title">
-            LISTADO DE CATEGORIAS
+            Categorias
         </h3>
     </div>
     <div class="box-body no-padding">
-    <div>
-        <a href="{{route('categories.create')}}" class="btn btn-primary">
+
+    <div class="mailbox-controls">
+        <a href="{{route('categories.create')}}" class="btn btn-primary pull-right">
             <i class="fas fa-plus"></i> Nueva categoria
         </a>
     </div>
@@ -23,7 +25,7 @@
     </tr>
     </thead>
     <tbody>
-    @foreach($categories as $category)
+    @forelse($categories as $category)
     <tr>
     <td>
     {{$category->name}}
@@ -31,12 +33,19 @@
     <td>
     </td>
     <td>
-        <a class="btn btn-primary btn-xs" href="{{route('categories.detail', ['id'=>$category->id])}}">
+        <a class="btn btn-primary btn-xs" href="{{route('questions.index', ['category_id'=>$category->id])}}">
             <i class="fas fa-list"></i> Preguntas
+        </a>
+        <a class="btn btn-primary btn-xs" href="{{route('categories.edit', ['id'=>$category->id])}}">
+            <i class="fas fa-edit"></i> Editar
         </a>
     </td>
     </tr>
-    @endforeach
+    @empty
+        <tr>
+            <td colspan="3">No existen items</td>
+        </tr>
+    @endforelse
     </tbody>
     </table>
     </div>
