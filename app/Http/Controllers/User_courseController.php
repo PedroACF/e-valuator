@@ -3,7 +3,7 @@
 namespace EV\Http\Controllers;
 
 use EV\Models\User_course;
-use EV\Models\User;
+use EV\User;
 use EV\Models\Course;
 
 use Illuminate\Http\Request;
