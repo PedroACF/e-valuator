@@ -3,23 +3,32 @@
 @section('content')
 <div class="box box-solid box-primary">
     <div class="box-header">
+        <h3 class="box-title">
+            Categorias
+        </h3>
     </div>
+    {{Form::model($category)}}
     <div class="box-body">
         <div class="row">
             <div class="col-xs-6 col-xs-offset-3">
-            <form method="post" action="{{route('categories.store')}}">
-                @csrf
                 <div class="form-group">
-                    <label for="name">Nombre</label>
-                    <input id="name" type="text" name="name" class="form-control upper">
+                    {{Form::label('name', 'Nombre')}}
+                    {{Form::text('name', null, ['class'=>'form-control upper'])}}
+                    @if($errors->has('name'))
+                    <span class="label label-danger">{{$errors->first()}}</span>
+                    @endif
                 </div>
-                <hr>
-                <button class="btn btn-primary pull-right">
-                    <i class="fas fa-save"></i> Guardar
-                </button>
-            </form>
             </div>
         </div>
     </div>
+    <div class="box-footer">
+        <a href="{{route('categories.index')}}" class="btn btn-default">
+            <i class="fas fa-arrow-left"></i> Cancelar
+        </a>
+        <button class="btn btn-primary pull-right">
+            <i class="fas fa-save"></i> Guardar
+        </button>
+    </div>
+    {{Form::close()}}
 </div>
 @endsection
