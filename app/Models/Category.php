@@ -6,7 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
-    public function index(){
-        return view('category.index');
+    protected $fillable = ['name'];
+
+    public function questions(){
+        return $this->hasMany('EV\Models\Question');
     }
 }

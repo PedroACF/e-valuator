@@ -13,6 +13,7 @@
 
 Auth::routes();
 
+
 Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function(){
     Route::get('/', function () {
         return view('welcome');
@@ -27,3 +28,11 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function(){
 
     Route::get('/home', 'HomeController@index')->name('home');
 });
+
+Route::get('/categories', 'CategoryController@index')->name('categories.index');
+Route::get('/categories/create', 'CategoryController@create')->name('categories.create');
+Route::get('/categories/{id}', 'CategoryController@detail')->name('categories.detail');
+Route::post('/categories/create', 'CategoryController@store')->name('categories.store');
+Route::get('questions/{category_id}/create', 'QuestionController@create')->name('questions.create');
+Route::post('questions/{category_id}/create', 'QuestionController@store')->name('questions.store');
+

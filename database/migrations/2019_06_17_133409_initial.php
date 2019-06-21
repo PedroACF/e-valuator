@@ -88,8 +88,12 @@ class Initial extends Migration
             $table->increments('id');
             $table->integer('question_id');
             $table->integer('answer_id');
+            $table->integer('user_id');
+            $table->integer('solution_id');
             $table->foreign('question_id')->references('id')->on('questions');
             $table->foreign('answer_id')->references('id')->on('answers');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('solution_id')->references('id')->on('solutions');
             $table->timestamps();
         });
 
@@ -113,3 +117,5 @@ class Initial extends Migration
         Schema::drop('courses');
     }
 }
+
+
