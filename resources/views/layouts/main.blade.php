@@ -242,6 +242,11 @@
           </a>
         </li>
         <li>
+          <a href="{{url('/tests')}}">
+            <i class="fas fa-th"></i> <span>Tests</span>
+          </a>
+        </li>
+        <li>
           <a href="{{route('categories.index')}}">
             <i class="fas fa-th"></i> <span>Categorias</span>
           </a>
