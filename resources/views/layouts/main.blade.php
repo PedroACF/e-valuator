@@ -18,6 +18,9 @@
     <link rel="stylesheet" href="/css/skins/_all-skins.min.css">
     <link rel="stylesheet" href="/css/custom.css">
 
+    <link rel="stylesheet" href="/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="/css/dataTables.bootstrap.min.css">
+
     <!-- Custom styles -->
     @stack('styles')
 
@@ -173,7 +176,15 @@
                   <a href="#" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                <a class="btn btn-default btn-flat" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                        Cerrar Sesion
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        {{ csrf_field() }}
+                    </form>
+                  
                 </div>
               </li>
             </ul>
@@ -437,6 +448,13 @@
 <script src="/plugins/fastclick/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="/js/adminlte.min.js"></script>
+
+<!-- select -->
+<script src="/js/bootstrap-select.min.js"></script>
+
+<!-- dataTables -->
+<script src="/js/jquery.dataTables.min.js"></script>
+
 
 <script>
     $(document).ready(function () {

@@ -11,8 +11,19 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Auth::routes();
 
-Route::get('/categories', 'CategoryController@index');
+Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function(){
+    Route::get('/', function () {
+        return view('welcome');
+    });
+
+    Route::get('/categories', 'CategoryController@index');
+
+
+    Route::resource('courses','CourseController');
+    Route::resource('user_course','User_courseController');
+    Auth::routes();
+
+    Route::get('/home', 'HomeController@index')->name('home');
+});
