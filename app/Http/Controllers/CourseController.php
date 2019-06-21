@@ -2,14 +2,14 @@
 
 namespace EV\Http\Controllers;
 
-use EV\Course;
+use EV\Models\Course;
 use EV\User;
 
 use Illuminate\Http\Request;
 
 class CourseController extends Controller
 {
-    var $path_view          = "layouts.course";
+    var $path_view          = "course";
     var $path_controller    = "courses";
     var $title              = "Courses";
     public function index()

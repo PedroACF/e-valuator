@@ -30,6 +30,8 @@ Route::group(['middleware' => ['auth']], function(){
 
     Route::resource('courses','CourseController');
     Route::resource('user_course','User_courseController');
+    Route::resource('tests','TestController');
+    Route::resource('test_rules','Test_rulesController');
 
     Route::get('/home', 'HomeController@index')->name('home');
 });

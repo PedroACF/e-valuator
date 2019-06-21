@@ -237,10 +237,16 @@
           </ul>
         </li>
         <li>
+          <a href="{{url('/courses')}}">
+            <i class="fas fa-th"></i> <span>Courses</span>
+          </a>
+        </li>
+        <li>
           <a href="{{route('categories.index')}}">
             <i class="fas fa-th"></i> <span>Categorias</span>
           </a>
         </li>
+        
         <li class="treeview">
           <a href="#">
             <i class="fas fa-files-o"></i>

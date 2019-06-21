@@ -1,6 +1,6 @@
 <?php
 
-namespace EV;
+namespace EV\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,7 +15,7 @@ class Course extends Model
         return $this->belongsToMany('App\User_Course');
     }*/
     public function users(){
-        return $this->belongsToMany('EV\User','users_courses');
+        return $this->belongsToMany('EV\Models\User','users_courses');
         //return $this->belongsToMany('App\Role', 'role_user', 'userId', 'roleId');
     }
 }
