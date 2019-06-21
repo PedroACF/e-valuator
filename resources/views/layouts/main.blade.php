@@ -225,6 +225,11 @@
             <li><a href="../../index2.html"><i class="fas fa-circle"></i> Dashboard v2</a></li>
           </ul>
         </li>
+        <li>
+          <a href="{{route('categories.index')}}">
+            <i class="fas fa-th"></i> <span>Categorias</span>
+          </a>
+        </li>
         <li class="treeview">
           <a href="#">
             <i class="fas fa-files-o"></i>
@@ -449,6 +454,11 @@
             if($link.prop('href')===currentUrl){
                 $current.addClass('active');
             }
+        });
+
+        $(".upper").on('keyup', function(e){
+            var $input = $(e.target);
+            $input.val($input.val().toUpperCase());
         });
     })
 </script>
