@@ -14,7 +14,8 @@
 Auth::routes();
 
 
-Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function(){
+Route::group(['middleware' => ['auth']], function(){
+
     Route::get('/', function () {
         return view('welcome');
     });
@@ -24,7 +25,6 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function(){
 
     Route::resource('courses','CourseController');
     Route::resource('user_course','User_courseController');
-    Auth::routes();
 
     Route::get('/home', 'HomeController@index')->name('home');
 });
