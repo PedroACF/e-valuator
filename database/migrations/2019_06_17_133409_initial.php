@@ -90,6 +90,7 @@ class Initial extends Migration
             $table->integer('answer_id');
             $table->integer('user_id');
             $table->integer('solution_id');
+            $table->boolean('marked')->default(false);
             $table->foreign('question_id')->references('id')->on('questions');
             $table->foreign('answer_id')->references('id')->on('answers');
             $table->foreign('user_id')->references('id')->on('users');
