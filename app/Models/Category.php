@@ -11,4 +11,8 @@ class Category extends Model
     public function questions(){
         return $this->hasMany('EV\Models\Question');
     }
+
+    public function testRules(){
+        return $this->hasMany('EV\Models\Test_rules');
+    }
 }

@@ -18,4 +18,8 @@ class Course extends Model
         return $this->belongsToMany('EV\User','users_courses');
         //return $this->belongsToMany('App\Role', 'role_user', 'userId', 'roleId');
     }
+
+    public function test(){
+        return $this->hasMany('EV\Models\Test');
+    }
 }

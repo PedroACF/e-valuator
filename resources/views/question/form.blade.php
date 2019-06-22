@@ -2,12 +2,13 @@
 
 @section('content')
     <div class="box box-solid box-widget box-primary">
-        {{Form::model($question)}}
+
         <div class="box-header">
             <h3 class="box-title">
-            {{$category->name}}
+                {{$category->name}}
             </h3>
         </div>
+        {{Form::model($question)}}
         <div class="box-body">
             <div class="form-group">
                 {{Form::label('description', 'PREGUNTA')}}
@@ -34,7 +35,7 @@
                         <i class='fas fa-trash'></i> Quitar
                     </button>
                 </span>
-                {{Form::textarea("answers[{$loop->index}][correct]", null, ['class'=>'form-control'])}}
+                {{Form::textarea("answers[{$loop->index}][description]", null, ['class'=>'form-control'])}}
             </div>
         </div>
         @endforeach

@@ -31,6 +31,7 @@
     {{$category->name}}
     </td>
     <td>
+        {{$category->questions->count()}}
     </td>
     <td>
         <a class="btn btn-primary btn-xs" href="{{route('questions.index', ['category_id'=>$category->id])}}">

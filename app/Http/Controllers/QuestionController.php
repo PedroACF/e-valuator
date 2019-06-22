@@ -24,7 +24,8 @@ class QuestionController extends Controller
     public function store(Request $request, $category_id){
         $validatedData = $request->validate([
             'description' => 'required',
-            'answers.*.description'=>'required'
+            'answers.*.description'=>'required',
+            'answers.*.correct'=>'nullable'
         ]);
         $category = Category::findOrFail($category_id);
 
@@ -47,7 +48,8 @@ class QuestionController extends Controller
     public function update(Request $request, $category_id, $id){
         $validatedData = $request->validate([
             'description' => 'required',
-            'answers.*.description'=>'required'
+            'answers.*.description'=>'required',
+            'answers.*.correct'=>'nullable'
         ]);
         $question = Question::findOrFail($id);
 

@@ -476,6 +476,18 @@
     $(document).ready(function () {
         //$('.sidebar-menu').tree();
         var currentUrl = window.location.href;
+        var interval = 1000 * 60 * 7;
+
+        setInterval(function(){
+          $.ajax({
+            url: "{{route('alive')}}",
+            method: 'get',
+            success: function(){
+              console.log('is alive!!!');
+            }
+          });
+        }, interval);
+
         $("#navbar-collapse").find('ul').find('li').each(function(){
             var $current = $(this);
             $current.removeClass('active');

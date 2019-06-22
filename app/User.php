@@ -41,4 +41,8 @@ class User extends Authenticatable
     public function course(){
         return $this->belongsToMany('EV\User','users_courses');
     }
+
+    public function solutions(){
+        return $this->hasMany('EV\Models\Solution');
+    }
 }

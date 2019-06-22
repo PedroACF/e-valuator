@@ -11,6 +11,8 @@
 |
 */
 
+use EV\User;
+
 Auth::routes();
 
 
@@ -37,6 +39,11 @@ Route::group(['middleware' => ['auth']], function(){
         Route::post('{id}/edit', 'QuestionController@update')->name('questions.update');
     });
 
+    Route::prefix('s')->group(function(){
+        Route::get('{test_id}', 'SolutionController@openTest')->name('solution.open');
+        Route::post('{test_id}', 'SolutionController@solution')->name('solution.solution');
+    });
+
 
 
 
@@ -48,4 +55,8 @@ Route::group(['middleware' => ['auth']], function(){
     Route::resource('test_rules','Test_rulesController');
 
     Route::get('/home', 'HomeController@index')->name('home');
+
+    Route::get('keep-alive', function(){
+        return response()->json(['is_alive'=>true]);
+    })->name('alive');
 });
