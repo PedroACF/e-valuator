@@ -13,7 +13,7 @@ class TestRequest extends FormRequest
 
     public function authorize()
     {
-        return true;
+        //return true;
         $test_id = $this->route('test_id');
         $current_test = Test::findOrFail($test_id);
         $current_user = Auth::user();
