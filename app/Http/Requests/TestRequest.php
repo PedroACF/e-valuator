@@ -24,7 +24,7 @@ class TestRequest extends FormRequest
         $test_start_time = new Carbon($current_test->start_at);
         $test_end_time = new Carbon($current_test->end_at);
         $current_time = Carbon::now();
-        if($current_time->isAfter($test_start_time) && $current_time->isBefore($test_end_time)){
+        if($current_time->isAfter($test_start_time)){
             return true;
         }
         return false;

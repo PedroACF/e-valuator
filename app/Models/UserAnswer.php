@@ -12,4 +12,12 @@ class UserAnswer extends Model
     public function solution(){
         return $this->belongsTo('EV\Models\Solution');
     }
+
+    public function question(){
+        return $this->belongsTo('EV\Models\Question');
+    }
+
+    public function answer(){
+        return $this->belongsTo('EV\Models\Answer');
+    }
 }

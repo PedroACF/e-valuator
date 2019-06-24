@@ -16,7 +16,7 @@ class Solution extends Model
         return $this->belongsTo('EV\User');
     }
 
-    public function user_answers(){
-        return $this->hasMany('EV\Models\UserAnswer');
+    public function userAnswers(){
+        return $this->hasMany('EV\Models\UserAnswer')->orderBy('id');
     }
 }

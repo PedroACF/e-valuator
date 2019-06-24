@@ -76,6 +76,7 @@ class Initial extends Migration
         Schema::create('solutions', function(Blueprint $table){
             $table->increments('id');
             $table->decimal('total', 5, 2)->default(0);
+            $table->boolean('ended')->default(false);
             $table->datetime('end_at');
             $table->integer('test_id');
             $table->foreign('test_id')->references('id')->on('tests');
