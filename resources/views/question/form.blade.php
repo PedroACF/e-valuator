@@ -65,12 +65,17 @@
                             + "<span class='username'>"
                             + "<span></span><button class='btn btn-xs btn-danger pull-right remove-answer' type='button'><i class='fas fa-trash'></i> Quitar</button>"
                             + "</span>"
-                            + "<textarea class='form-control'></textarea>"
+                            + "<textarea class='form-control rich-control'></textarea>"
                             + "</div>"
                             + "</div>";
 
                 var $content = $(".box-comments");
                 $content.append($block);
+                const keys = Object.keys(CKEDITOR.instances);
+                for(var i=0;i<keys.length; i++){
+                    CKEDITOR.instances[keys[i]].destroy();
+                }
+                CKEDITOR.replaceAll('rich-control');
                 removeHandler();
                 rename();
             }
