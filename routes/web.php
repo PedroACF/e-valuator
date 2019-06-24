@@ -13,14 +13,31 @@
 
 use EV\User;
 
-Auth::routes();
 
+
+
+//Auth::routes();
+Auth::routes(['register' => false]);
+
+Route::group(['middleware' => ['auth','user']], function(){
+    Route::get('test','TestController@test');
+    Route::prefix('s')->group(function(){
+        Route::get('{test_id}', 'SolutionController@openTest')->name('solution.open');
+        Route::post('{test_id}', 'SolutionController@solution')->name('solution.solution');
+    });
+});
 
 Route::group(['middleware' => ['auth']], function(){
-
     Route::get('/', function () {
         return view('welcome');
     });
+});
+
+
+Route::group(['middleware' => ['auth','admin']], function(){
+
+
+    
 
     Route::prefix('categories')->group(function(){
         Route::get('/', 'CategoryController@index')->name('categories.index');
@@ -39,10 +56,7 @@ Route::group(['middleware' => ['auth']], function(){
         Route::post('{id}/edit', 'QuestionController@update')->name('questions.update');
     });
 
-    Route::prefix('s')->group(function(){
-        Route::get('{test_id}', 'SolutionController@openTest')->name('solution.open');
-        Route::post('{test_id}', 'SolutionController@solution')->name('solution.solution');
-    });
+    
 
 
 

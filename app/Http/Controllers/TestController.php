@@ -4,6 +4,7 @@ namespace EV\Http\Controllers;
 
 use EV\Models\Course;
 use EV\User;
+use DB;
 use EV\Models\Test;
 use EV\Models\Category;
 
@@ -66,24 +67,15 @@ class TestController extends Controller
     }
     public function show($id)
     {
-        //$users=User::all();
 
-        //return "show";
         
         $test=Test::findOrFail($id);
         $data=$test->category;
-        //return $data;
-
 
 
         $category=Category::wherenotin('id',function($q) use ($id){
             $q->from('test_rules')->select('category_id')->where('test_id',$id);
         })->get();
-        //return $users;
-
-        /*$permiso=Permission::wherenotin('id',function($q) use ($id){
-            $q->from('permission_role')->select('permission_id')->where('role_id',$id);
-        })->get();*/
 
 
         return view($this->path_view.'.show')
@@ -143,4 +135,27 @@ class TestController extends Controller
     {
         
     }    
+
+    public function test(){
+        //return "asd";
+        $sql="select t.id,u.name user_name,c.name course_name,c.shortname,c.group,t.description, t.minutes,t.start_at,t.end_at,
+        (select count(tr.id) num from test_rules tr
+        inner join categories c
+        on tr.category_id=c.id
+        inner join questions q
+        on q.category_id=c.id
+        where tr.test_id=t.id)
+        from users u 
+        inner join users_courses uc
+        on u.id=uc.user_id
+        inner join courses c
+        on uc.course_id=c.id
+        inner join tests t
+        on c.id=t.course_id
+        where u.id=:id
+        order by c.name,t.id";
+        $rows=\DB::select(DB::raw($sql),array('id'=>\Auth::user()->id));
+        return view($this->path_view.'.test')
+            ->with('test_enabled',$rows);
+    }
 }
