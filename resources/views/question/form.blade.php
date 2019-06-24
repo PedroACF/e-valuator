@@ -76,6 +76,7 @@
                     CKEDITOR.instances[keys[i]].destroy();
                 }
                 CKEDITOR.replaceAll('rich-control');
+                console.log(CKEDITOR.instances)
                 removeHandler();
                 rename();
             }
