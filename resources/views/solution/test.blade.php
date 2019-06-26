@@ -14,6 +14,7 @@
                 <h4>Quedan <span id="minutos"></span> minutos, <span id="segundos"></span> segundos.</h4>
             @endif
         </div>
+        @if(!$solution->ended|| \Carbon\Carbon::now()->isAfter(new \Carbon\Carbon($solution->end_at)))
         <div class="box-footer box-comments" style="background: white; padding: 0;">
             @if(!$solution->ended){{Form::open(['id'=>'question_form'])}}@endif
             <input type="hidden" name="sid" value="{{$solution->id}}">
@@ -52,6 +53,7 @@
                 @endif
             @endforeach
         </div>
+        @endif
         <div class="box-footer">
             @if($solution->ended)
                 <a href="/" class="btn btn-default">
@@ -100,6 +102,8 @@
     <script src="/plugins/iCheck/icheck.js"></script>
     <script>
         $(function(){
+
+
             @if(!$solution->ended)
                 var f_t = false;
                 @php
