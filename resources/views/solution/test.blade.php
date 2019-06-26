@@ -43,7 +43,6 @@
                                     @endif
                                     <div class="answer-text {{($solution->ended && $userAnswer2->answer->correct)?'correct':''}} ">
                                         {!! $userAnswer2->answer->description !!}
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores natus non quia quidem vero. Delectus doloribus ea esse eum, harum, inventore iste labore laborum maiores, molestiae rerum suscipit voluptate voluptatem!
                                     </div>
                                 </div>
                             @endif
