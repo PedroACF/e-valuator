@@ -75,11 +75,11 @@ Route::group(['middleware' => ['auth','admin']], function(){
     })->name('alive');
 });
 
-
+/*
 Route::get('cambiar', function(){
     $users = User::whereNotIn('id', [1,2])->get();
     foreach ($users as $user){
         $user->password = bcrypt($user->password);
         $user->save();
     }
-});
+});*/
