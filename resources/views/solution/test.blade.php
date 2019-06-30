@@ -14,7 +14,7 @@
                 <h4>Quedan <span id="minutos"></span> minutos, <span id="segundos"></span> segundos.</h4>
             @endif
         </div>
-        @if(!$solution->ended|| \Carbon\Carbon::now()->isAfter(new \Carbon\Carbon($solution->end_at)))
+        @if(!$solution->ended)
         <div class="box-footer box-comments" style="background: white; padding: 0;">
             @if(!$solution->ended){{Form::open(['id'=>'question_form'])}}@endif
             <input type="hidden" name="sid" value="{{$solution->id}}">
