@@ -14,7 +14,7 @@
 <h1>Bienvenido {{Auth::user()->name}}</h1>
 <h3>
 <a href="{{url('/test')}}">
-<i class=""></i> <span>Ver examanes disponibles</span>
+<i class=""></i> <span>Ver exámenes disponibles</span>
 </a>
 </h3>
 @endsection
